@@ -1,40 +1,7 @@
 portfolio
 ============
 
-Webapp portfolio with Golang
-
-Usage
------
-
-Install Go with MacPorts
-
-    sudo port install go
-
-Setup Go workspace
-
-    mkdir -p $HOME/go
-    export GOPATH=$HOME/go
-    export GO=$HOME/go
-
-Get portfolio and CompileDaemon
-
-    go get github.com/githubnemo/CompileDaemon
-    go get github.com/bborbe/go/dirof
-    go get github.com/bborbe/go/unique
-    go get github.com/bborbe/portfolio/bin/portfolio_server
-
-Start Dev-Mode with autorecompile and restart
-
-    sh $GO/src/github.com/bborbe/portfolio/scripts/portfolio.sh devstart
-
-Open webapp in browser
-
-    open http://localhost:48567/
-
-Make your own changes
-
-    sublime $GO/src/github.com/bborbe/portfolio
-
+Portfolio webapp in Go
 
 Documentation
 -------------
