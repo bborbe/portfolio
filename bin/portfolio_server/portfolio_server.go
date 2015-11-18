@@ -4,8 +4,8 @@ import (
 	"flag"
 	"net/http"
 
-	"github.com/bborbe/portfolio/handler"
 	"github.com/bborbe/log"
+	"github.com/bborbe/portfolio/handler"
 	"github.com/facebookgo/grace/gracehttp"
 )
 
