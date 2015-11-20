@@ -1,0 +1,18 @@
+{
+  "name": "portfolio",
+  "section": "utils",
+  "priority": "optional",
+  "architecture": "amd64",
+  "maintainer": "Benjamin Borbe <bborbe@rocketnews.de>",
+  "description": "Portfolio Webapp",
+  "files": [
+    {
+      "source": "bin/portfolio_server",
+      "target": "/opt/portfolio/bin/portfolio_server"
+    },
+    {
+      "source": "src/github.com/bborbe/portfolio/files",
+      "target": "/opt/portfolio/files"
+    }
+  ]
+}
