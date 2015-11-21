@@ -1,6 +1,9 @@
 #!/bin/sh
 
 SOURCEDIRECTORY="github.com/bborbe/portfolio"
+INSTALLS="github.com/bborbe/portfolio/bin/portfolio_server"
+VERSION="1.0.1-b${BUILD_NUMBER}"
+NAME="portfolio"
 
 export GOROOT=/opt/go1.5.1
 export PATH=$GOROOT/bin:$PATH
@@ -34,3 +37,27 @@ then
 else
   echo "Tests success"
 fi
+
+echo "Tests completed, install to $GOPATH"
+
+go install $INSTALLS
+
+echo "Install completed, create debian package"
+
+/opt/debian/bin/create_debian_package_by_config \
+-loglevel=DEBUG \
+-version=$VERSION \
+-config=src/$SOURCEDIRECTORY/create_debian_package_config.json
+
+echo "Create debian package completed, upload"
+
+/opt/aptly/bin/aptly_upload \
+-loglevel=DEBUG \
+-url=http://aptly.benjamin-borbe.de \
+-username=api \
+-password=KYkobxZ6uvaGnYBG \
+-file=$DEB \
+-repo=unstable
+
+echo "Upload completed"
+
