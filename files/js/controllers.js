@@ -9,6 +9,7 @@ angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', 
     $log.debug('init');
     ConfigService.get().then(function successCallback(config) {
       $scope.config = config;
+      angular.element(window.document)[0].title = config.title + ' - ' + config.subtitle + ' ' + config.subtext;
       $interval($scope.next, 5000);
       $scope.next();
     }, function errorCallback(response) {

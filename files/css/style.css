@@ -37,6 +37,14 @@ body {
   white-space: nowrap;
 }
 
+#subtitle {
+  text-transform: uppercase;
+}
+
+#subtext {
+  text-transform: capitalize;
+}
+
 #h2 {
   font-family: proxima-nova;
   font-size: 15px;
