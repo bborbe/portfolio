@@ -29,7 +29,8 @@ body {
 
 #title {
   font-family: futura-pt;
-  font-size: 72px;
+  xfont-size: 72px;
+  font-size: 4vw;
   font-style: normal;
   font-weight: normal;
   letter-spacing: -1px;
@@ -41,29 +42,29 @@ body {
 #subtitle {
   text-transform: uppercase;
   font-family: proxima-nova;
-  font-size: 15px;
+  font-size: 1vw;
   font-style: normal;
   font-weight: 100;
-  letter-spacing: 1px;
+  letter-spacing: 0.1vw;
   text-transform: uppercase;
   white-space: nowrap;
-  margin-top: 12px;
+  margin-top: 0.5vw;
 }
 
 #subtext {
   text-transform: capitalize;
   font-family: ltc-bodoni-175;
-  font-size: 15px;
+  font-size: 1vw;
   font-style: italic;
   font-weight: normal;
   letter-spacing: 2px;
   text-transform: capitalize;
   white-space: nowrap;
-  margin-top: 5px;
+  margin-top: 0.5vw;
 }
 
 #navi {
-  margin: 40px 20px 0 40px;
+  margin: 2vw 1vw 0 2vw;
   display: inline-block;
   float: right;
 }
@@ -71,22 +72,22 @@ body {
 #navi li {
   display: inline-block;
   list-style: none;
-  padding: 5px;
+  padding: 0.5vw;
 }
 
 #navi li a {
   display: inline-block;
-  width: 150px;
+  width: 8vw;
   font-family: "europa";
-  font-size: 15px;
+  font-size: 1vw;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 600;
   background: #fff;
   color: #9dabb7;
   text-decoration: none;
-  border-radius: 4px;
-  padding: 20px;
+  border-radius: 0.5vw;
+  padding: 1vw;
   margin: 0;
   text-align: center;
 }
