@@ -3,9 +3,9 @@
   margin: 0;
 }
 
-div#bg div {
-  border: 1px solid red;
-}
+/*div#bg div {*/
+/*border: 1px solid red;*/
+/*}*/
 
 body {
   color: white;
@@ -29,7 +29,7 @@ body {
 
 #logo > div {
   display: inline-block;
-  float:left;
+  float: left;
 }
 
 #title {
