@@ -5,7 +5,7 @@
   "architecture": "amd64",
   "maintainer": "Benjamin Borbe <bborbe@rocketnews.de>",
   "description": "Portfolio Webapp",
-  "postinst": "src/github.com/bborbe/debian-utils/files/postinst",
+  "postinst": "src/github.com/bborbe/portfolio/postinst",
   "files": [
     {
       "source": "bin/portfolio_server",
