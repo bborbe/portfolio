@@ -1,0 +1,5 @@
+#!/bin/sh
+
+chown -R www-data:www-data /opt/portfolio
+find /opt/portfolio -type d -exec chmod 755 "{}" \;
+find /opt/portfolio -type f -exec chmod 644 "{}" \;
