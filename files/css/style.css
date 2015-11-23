@@ -17,14 +17,14 @@ body {
   background-position: center;
 }
 
-.header {
+#logo {
   margin: 40px 20px 0 40px;
-  vertical-align: middle;
+  display: inline-block;
+  float: left;
 }
 
-.header div {
-  float: left;
-  margin-right: 30px;
+#logo div {
+  display: inline-block;
 }
 
 #title {
@@ -35,17 +35,11 @@ body {
   letter-spacing: -1px;
   text-transform: uppercase;
   white-space: nowrap;
+  margin-right: 10px;
 }
 
 #subtitle {
   text-transform: uppercase;
-}
-
-#subtext {
-  text-transform: capitalize;
-}
-
-#h2 {
   font-family: proxima-nova;
   font-size: 15px;
   font-style: normal;
@@ -56,7 +50,8 @@ body {
   margin-top: 12px;
 }
 
-#h3 {
+#subtext {
+  text-transform: capitalize;
   font-family: ltc-bodoni-175;
   font-size: 15px;
   font-style: italic;
@@ -68,6 +63,8 @@ body {
 }
 
 #navi {
+  margin: 40px 20px 0 40px;
+  display: inline-block;
   float: right;
 }
 

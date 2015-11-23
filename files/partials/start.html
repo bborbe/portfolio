@@ -1,17 +1,16 @@
 <div id="bg" ng-style="{'background-image': image}">
-  <div class="header">
+  <div id="logo">
     <div>
       <h1 id="title">{{config.title}}</h1>
     </div>
     <div>
-      <h1 id="h2" id="subtitle">{{config.subtitle}}</h1>
-
-      <p id="h3" id="subtext">{{config.subtext}}</p>
+      <h2 id="subtitle">{{config.subtitle}}</h2>
+      <h3 id="subtext">{{config.subtext}}</h3>
     </div>
-    <div id="navi" ng-if="config.navi">
-      <ul>
-        <li ng-repeat="navi in config.navi"><a href="{{navi.href}}">{{navi.name}}</a></li>
-      </ul>
-    </div>
+  </div>
+  <div id="navi" ng-if="config.navi">
+    <ul>
+      <li ng-repeat="navi in config.navi"><a href="{{navi.href}}">{{navi.name}}</a></li>
+    </ul>
   </div>
 </div>
