@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+div#bg div {
+  border: 1px solid red;
+}
+
 body {
   color: white;
   background-color: darkgrey;
@@ -23,13 +27,13 @@ body {
   float: left;
 }
 
-#logo div {
+#logo > div {
   display: inline-block;
+  float:left;
 }
 
 #title {
   font-family: futura-pt;
-  xfont-size: 72px;
   font-size: 4vw;
   font-style: normal;
   font-weight: normal;
@@ -70,6 +74,7 @@ body {
 }
 
 #navi li {
+  float: right;
   display: inline-block;
   list-style: none;
   padding: 0.5vw;
@@ -77,11 +82,11 @@ body {
 
 #navi li a {
   display: inline-block;
-  width: 8vw;
+  width: 6vw;
   font-family: "europa";
   font-size: 1vw;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0.1vw;
   font-weight: 600;
   background: #fff;
   color: #9dabb7;
