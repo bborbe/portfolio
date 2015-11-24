@@ -7,10 +7,9 @@ angular.module('portfolioDirectives', []).directive('keypressEvents', ['$documen
   return {
     restrict: 'A',
     link: function () {
-      $document.bind('keypress', function (e) {
+      $document.bind('keydown', function (e) {
         $rootScope.$broadcast('keypress', e);
       });
     }
   };
-}
-]);
+}]);
