@@ -5,8 +5,9 @@ angular.module('portfolioControllers', []);
 angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', '$log', '$interval', 'ConfigService', function ($scope, $q, $log, $interval, ConfigService) {
   $log.debug("started");
 
-  $scope.$on('keypress', function (onEvent, keypressEvent) {
-    if (keypressEvent.keyCode == 39 || keypressEvent.charCode == 32) {
+  $scope.$on('keydown', function (onEvent, keypressEvent) {
+    //$log.debug('keydown keyCode:' + keypressEvent.keyCode + ' charCode: ' + keypressEvent.charCode);
+    if (keypressEvent.keyCode == 39 || keypressEvent.keyCode == 32 || keypressEvent.charCode == 32) {
       $scope.next();
       $scope.noop();
     }
