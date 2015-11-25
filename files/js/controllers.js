@@ -23,14 +23,15 @@ angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', 
       $scope.config = config;
       angular.element(window.document)[0].title = config.title + ' - ' + config.subtitle + ' ' + config.subtext;
       $interval($scope.interfalFunc, 5000);
-      $scope.show(0);
+      var first = Math.floor(Math.random() * ($scope.config.images.length - 1));
+      $log.debug('first = ' + first);
+      $scope.show(first);
     }, function errorCallback(response) {
       $log.error('log config failed: ' + response);
     });
   };
 
   var current = 0;
-
 
   $scope.interfalFunc = function () {
     $scope.next();
