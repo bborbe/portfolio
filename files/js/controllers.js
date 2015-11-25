@@ -23,15 +23,14 @@ angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', 
       $scope.config = config;
       angular.element(window.document)[0].title = config.title + ' - ' + config.subtitle + ' ' + config.subtext;
       $interval($scope.interfalFunc, 5000);
-      var first = Math.floor(Math.random() * ($scope.config.images.length - 1));
-      $log.debug('first = ' + first);
-      $scope.show(first);
+      $log.debug('images to display: ' + $scope.config.images.length);
+      $scope.current = Math.floor(Math.random() * ($scope.config.images.length));
+      $scope.show($scope.current);
     }, function errorCallback(response) {
       $log.error('log config failed: ' + response);
     });
   };
 
-  var current = 0;
 
   $scope.interfalFunc = function () {
     $scope.next();
@@ -46,20 +45,21 @@ angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', 
   };
 
   $scope.next = function () {
-    current = (current + 1) % $scope.config.images.length;
-    $scope.show(current);
+    $scope.current = ($scope.current + 1) % $scope.config.images.length;
+    $scope.show($scope.current);
   };
 
   $scope.last = function () {
-    if (current == 0) {
-      current = $scope.config.images.length - 1;
+    if ($scope.current == 0) {
+      $scope.current = $scope.config.images.length - 1;
     } else {
-      current = (current - 1);
+      $scope.current = ($scope.current - 1);
     }
-    $scope.show(current);
+    $scope.show($scope.current);
   };
 
   $scope.show = function (pos) {
+    $log.debug('show image at pos: ' + pos);
     var url = $scope.config.images[pos];
     $scope.preload(url).then(function () {
       $scope.image = 'url("' + url + '")';
