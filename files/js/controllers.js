@@ -3,7 +3,7 @@
 angular.module('portfolioControllers', []);
 
 angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', '$log', '$interval', 'ConfigService', function ($scope, $q, $log, $interval, ConfigService) {
-  $log.debug("started");
+  // $log.debug("started");
 
   $scope.$on('keydown', function (onEvent, keypressEvent) {
     //$log.debug('keydown keyCode:' + keypressEvent.keyCode + ' charCode: ' + keypressEvent.charCode);
@@ -18,12 +18,12 @@ angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', 
   });
 
   $scope.init = function () {
-    $log.debug('init');
+    // $log.debug('init');
     ConfigService.get().then(function successCallback(config) {
       $scope.config = config;
       angular.element(window.document)[0].title = config.title + ' - ' + config.subtitle + ' ' + config.subtext;
       $interval($scope.interfalFunc, 5000);
-      $log.debug('images to display: ' + $scope.config.images.length);
+      // $log.debug('images to display: ' + $scope.config.images.length);
       $scope.current = Math.floor(Math.random() * ($scope.config.images.length));
       $scope.show($scope.current);
     }, function errorCallback(response) {
@@ -59,11 +59,11 @@ angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', 
   };
 
   $scope.show = function (pos) {
-    $log.debug('show image at pos: ' + pos);
+    // $log.debug('show image at pos: ' + pos);
     var url = $scope.config.images[pos];
     $scope.preload(url).then(function () {
       $scope.image = 'url("' + url + '")';
-      $log.debug("image = " + $scope.image);
+      // $log.debug("image = " + $scope.image);
     });
   };
 
