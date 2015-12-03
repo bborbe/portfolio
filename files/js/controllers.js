@@ -2,7 +2,7 @@
 
 angular.module('portfolioControllers', []);
 
-angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', '$log', '$interval', 'ConfigService', function ($scope, $q, $log, $interval, ConfigService) {
+angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', '$log', '$interval', 'config', function ($scope, $q, $log, $interval, config) {
   // $log.debug("started");
 
   $scope.$on('keydown', function (onEvent, keypressEvent) {
@@ -19,16 +19,11 @@ angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', 
 
   $scope.init = function () {
     // $log.debug('init');
-    ConfigService.get().then(function successCallback(config) {
-      $scope.config = config;
-      angular.element(window.document)[0].title = config.title + ' - ' + config.subtitle + ' ' + config.subtext;
-      $interval($scope.interfalFunc, 5000);
-      // $log.debug('images to display: ' + $scope.config.images.length);
-      $scope.current = Math.floor(Math.random() * ($scope.config.images.length));
-      $scope.show($scope.current);
-    }, function errorCallback(response) {
-      $log.error('log config failed: ' + response);
-    });
+    angular.element(window.document)[0].title = config.title + ' - ' + config.subtitle + ' ' + config.subtext;
+    $interval($scope.interfalFunc, 5000);
+    // $log.debug('images to display: ' + config.images.length);
+    $scope.current = Math.floor(Math.random() * (config.images.length));
+    $scope.show($scope.current);
   };
 
 
@@ -45,13 +40,13 @@ angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', 
   };
 
   $scope.next = function () {
-    $scope.current = ($scope.current + 1) % $scope.config.images.length;
+    $scope.current = ($scope.current + 1) % config.images.length;
     $scope.show($scope.current);
   };
 
   $scope.last = function () {
     if ($scope.current == 0) {
-      $scope.current = $scope.config.images.length - 1;
+      $scope.current = config.images.length - 1;
     } else {
       $scope.current = ($scope.current - 1);
     }
@@ -60,7 +55,7 @@ angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', 
 
   $scope.show = function (pos) {
     // $log.debug('show image at pos: ' + pos);
-    var url = $scope.config.images[pos];
+    var url = config.images[pos];
     $scope.preload(url).then(function () {
       $scope.image = 'url("' + url + '")';
       // $log.debug("image = " + $scope.image);

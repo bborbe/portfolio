@@ -5,7 +5,8 @@ angular.module('portfolioApp', [
   'portfolioControllers',
   'portfolioDirectives',
   'portfolioFilters',
-  'portfolioServices'
+  'portfolioServices',
+  'portfolioConfig'
 ]);
 
 angular.module('portfolioApp').config(['$routeProvider', function ($routeProvider) {
@@ -19,19 +20,17 @@ angular.module('portfolioApp').config(['$routeProvider', function ($routeProvide
     });
 }]);
 
-angular.module('portfolioApp').run(['$rootScope', '$location', '$window', '$log', 'ConfigService', function ($rootScope, $location, $window, $log, ConfigService) {
-  ConfigService.get().then(function successCallback(config) {
-    var id = config['google-analytics-tracking-id'];
+angular.module('portfolioApp').run(['$rootScope', '$location', '$window', '$log', 'config', function ($rootScope, $location, $window, $log, config) {
+  var id = config['google-analytics-tracking-id'];
+  if ($window.ga) {
+    $log.debug('tracking id = ' + id);
+    $window.ga('create', id);
+  }
+  $rootScope.$on('$locationChangeSuccess', function (event) {
+    //$log.debug('$locationChangeSuccess: ' + $location.path());
     if ($window.ga) {
-      $log.debug('tracking id = ' + id);
-      $window.ga('create', id);
+      $log.debug('send pageview to google: ' + $location.path());
+      $window.ga('send', 'pageview', {page: $location.path()});
     }
-    $rootScope.$on('$locationChangeSuccess', function (event) {
-      //$log.debug('$locationChangeSuccess: ' + $location.path());
-      if ($window.ga) {
-        $log.debug('send pageview to google: ' + $location.path());
-        $window.ga('send', 'pageview', {page: $location.path()});
-      }
-    });
   });
 }]);
