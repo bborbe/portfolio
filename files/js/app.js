@@ -21,6 +21,7 @@ angular.module('portfolioApp').config(['$routeProvider', function ($routeProvide
 }]);
 
 angular.module('portfolioApp').run(['$rootScope', '$location', '$window', '$log', 'config', function ($rootScope, $location, $window, $log, config) {
+  angular.element(window.document)[0].title = config.title + ' - ' + config.subtitle + ' ' + config.subtext;
   var id = config['google-analytics-tracking-id'];
   if ($window.ga) {
     $log.debug('tracking id = ' + id);
