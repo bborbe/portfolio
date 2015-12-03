@@ -2,7 +2,7 @@
 
 angular.module('portfolioDirectives', []);
 
-angular.module('portfolioDirectives', []).directive('keypressEvents', ['$document', '$rootScope', '$log', function ($document, $rootScope, $log) {
+angular.module('portfolioDirectives').directive('keypressEvents', ['$document', '$rootScope', '$log', function ($document, $rootScope, $log) {
   return {
     restrict: 'A',
     link: function () {
@@ -22,7 +22,7 @@ angular.module('portfolioDirectives', []).directive('keypressEvents', ['$documen
   };
 }]);
 
-angular.module('portfolioDirectives', []).directive('trackClick', ['$log', '$window', function ($log, $window) {
+angular.module('portfolioDirectives').directive('trackClick', ['$log', '$window', function ($log, $window) {
   return {
     link: function (scope, element, attr) {
       var path = attr.trackClick || attr.href;
