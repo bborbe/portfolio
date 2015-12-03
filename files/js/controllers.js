@@ -19,6 +19,7 @@ angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', 
 
   $scope.init = function () {
     // $log.debug('init');
+    $scope.config = config;
     angular.element(window.document)[0].title = config.title + ' - ' + config.subtitle + ' ' + config.subtext;
     $interval($scope.interfalFunc, 5000);
     // $log.debug('images to display: ' + config.images.length);
