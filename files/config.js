@@ -21,6 +21,12 @@ angular.module('portfolioConfig').value('config', {
       "href": "mailto:info@benjamin-borbe.de",
       "name": "Kontakt"
     }
+  ],
+  "subnavi": [
+    {
+      "href": "https://www.benjamin-borbe.de/blog/impressum/",
+      "name": "Impressum"
+    }
   ]
 });
 

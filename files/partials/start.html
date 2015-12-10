@@ -13,4 +13,9 @@
       <li ng-repeat="navi in config.navi"><a href="{{navi.href}}" track-click="/{{navi.name | lowercase}}">{{navi.name}}</a></li>
     </ul>
   </div>
+  <div id="subnavi" ng-if="config.subnavi">
+    <ul>
+      <li ng-repeat="navi in config.subnavi"><a href="{{navi.href}}" track-click="/{{navi.name | lowercase}}">{{navi.name}}</a></li>
+    </ul>
+  </div>
 </div>

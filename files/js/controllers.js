@@ -3,10 +3,7 @@
 angular.module('portfolioControllers', []);
 
 angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', '$log', '$interval', 'config', function ($scope, $q, $log, $interval, config) {
-  // $log.debug("started");
-
   $scope.$on('keydown', function (onEvent, keypressEvent) {
-    //$log.debug('keydown keyCode:' + keypressEvent.keyCode + ' charCode: ' + keypressEvent.charCode);
     if (keypressEvent.keyCode == 39 || keypressEvent.keyCode == 32 || keypressEvent.charCode == 32) {
       $scope.next();
       $scope.noop();
@@ -18,14 +15,11 @@ angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', 
   });
 
   $scope.init = function () {
-    // $log.debug('init');
     $scope.config = config;
     $interval($scope.interfalFunc, 5000);
-    // $log.debug('images to display: ' + config.images.length);
     $scope.current = Math.floor(Math.random() * (config.images.length));
     $scope.show($scope.current);
   };
-
 
   $scope.interfalFunc = function () {
     $scope.next();
@@ -54,11 +48,9 @@ angular.module('portfolioControllers').controller('StartCtrl', ['$scope', '$q', 
   };
 
   $scope.show = function (pos) {
-    // $log.debug('show image at pos: ' + pos);
     var url = config.images[pos];
     $scope.preload(url).then(function () {
       $scope.image = 'url("' + url + '")';
-      // $log.debug("image = " + $scope.image);
     });
   };
 
