@@ -13,7 +13,7 @@ var (
 	logger          = log.DefaultLogger
 	addressPtr      = flag.String("a0", ":48568", "Zero address to bind to.")
 	documentRootPtr = flag.String("root", "", "Document root directory")
-	logLevelPtr     = flag.String("loglevel", log.INFO_STRING, "one of OFF,TRACE,DEBUG,INFO,WARN,ERROR")
+	logLevelPtr     = flag.String("loglevel", log.INFO_STRING, log.FLAG_USAGE)
 )
 
 func main() {
