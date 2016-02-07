@@ -2,6 +2,10 @@
 
 Portfolio webapp in Go
 
+## Install
+
+`go get github.com/bborbe/portfolio/bin/portfolio_server`
+
 ## Documentation
 
 http://godoc.org/github.com/bborbe/portfolio
