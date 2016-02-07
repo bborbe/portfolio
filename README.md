@@ -1,4 +1,4 @@
-# portfolio
+# Portfolio
 
 Portfolio webapp in Go
 
