@@ -6,10 +6,6 @@ Portfolio webapp in Go
 
 `go get github.com/bborbe/portfolio/bin/portfolio_server`
 
-## Documentation
-
-http://godoc.org/github.com/bborbe/portfolio
-
 ## Copyright and license
 
     Copyright (c) 2016, Benjamin Borbe <bborbe@rocketnews.de>
