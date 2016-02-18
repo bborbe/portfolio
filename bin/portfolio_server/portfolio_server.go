@@ -9,11 +9,15 @@ import (
 	"github.com/facebookgo/grace/gracehttp"
 )
 
+const (
+	PARAMETER_LOGLEVEL = "loglevel"
+)
+
 var (
 	logger          = log.DefaultLogger
 	addressPtr      = flag.String("a0", ":48568", "Zero address to bind to.")
 	documentRootPtr = flag.String("root", "", "Document root directory")
-	logLevelPtr     = flag.String("loglevel", log.INFO_STRING, log.FLAG_USAGE)
+	logLevelPtr     = flag.String(PARAMETER_LOGLEVEL, log.INFO_STRING, log.FLAG_USAGE)
 )
 
 func main() {
