@@ -4,10 +4,11 @@ import (
 	"flag"
 	"net/http"
 
+	"os"
+
 	"github.com/bborbe/log"
 	"github.com/bborbe/portfolio/handler"
 	"github.com/facebookgo/grace/gracehttp"
-	"os"
 )
 
 const (
@@ -15,10 +16,10 @@ const (
 )
 
 var (
-	logger = log.DefaultLogger
-	addressPtr = flag.String("a0", ":48568", "Zero address to bind to.")
+	logger          = log.DefaultLogger
+	addressPtr      = flag.String("a0", ":48568", "Zero address to bind to.")
 	documentRootPtr = flag.String("root", "", "Document root directory")
-	logLevelPtr = flag.String(PARAMETER_LOGLEVEL, log.INFO_STRING, log.FLAG_USAGE)
+	logLevelPtr     = flag.String(PARAMETER_LOGLEVEL, log.INFO_STRING, log.FLAG_USAGE)
 )
 
 func main() {
