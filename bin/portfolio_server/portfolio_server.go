@@ -9,6 +9,7 @@ import (
 	"github.com/bborbe/log"
 	"github.com/bborbe/portfolio/handler"
 	"github.com/facebookgo/grace/gracehttp"
+	"runtime"
 )
 
 const (
@@ -28,6 +29,8 @@ func main() {
 
 	logger.SetLevelThreshold(log.LogStringToLevel(*logLevelPtr))
 	logger.Debugf("set log level to %s", *logLevelPtr)
+
+	runtime.GOMAXPROCS(runtime.NumCPU())
 
 	server, err := createServer(*addressPtr, *documentRootPtr)
 	if err != nil {
