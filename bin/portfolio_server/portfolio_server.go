@@ -6,10 +6,11 @@ import (
 
 	"os"
 
+	"runtime"
+
 	"github.com/bborbe/log"
 	"github.com/bborbe/portfolio/handler"
 	"github.com/facebookgo/grace/gracehttp"
-	"runtime"
 )
 
 const (
