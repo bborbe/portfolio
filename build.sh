@@ -32,6 +32,20 @@ do
   fi
 done
 
+################################################################################
+
+cd src/$SOURCEDIRECTORY
+npm install
+karma start karma.conf.js
+rc=$?
+if [ $rc != 0 ]
+then
+	echo "Tests failed for karma"
+	FAILED=true
+fi
+
+################################################################################
+
 if $FAILED
 then
   echo "Tests failed => skip install"
