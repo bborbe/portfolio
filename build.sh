@@ -34,7 +34,7 @@ done
 
 ################################################################################
 
-cd src/$SOURCEDIRECTORY
+cd ${WORKSPACE}/src/$SOURCEDIRECTORY
 npm install
 ./node_modules/karma/bin/karma start karma.conf.js
 rc=$?
@@ -43,6 +43,7 @@ then
 	echo "Tests failed for karma"
 	FAILED=true
 fi
+cd ${WORKSPACE}
 
 ################################################################################
 
