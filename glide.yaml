@@ -1,0 +1,19 @@
+package: github.com/bborbe/portfolio
+import:
+- package: github.com/bborbe/http_handler
+  subpackages:
+  - cachingheader
+  - contenttype
+  - debug
+  - fallback
+  - log
+  - static
+- package: github.com/bborbe/http_handler_finder
+  subpackages:
+  - part
+- package: github.com/bborbe/log
+- package: github.com/facebookgo/grace
+  subpackages:
+  - gracehttp
+testImport:
+- package: github.com/bborbe/assert
