@@ -7,6 +7,6 @@ update:
 	glide up
 	npm-check-updates -u
 clean:
-	rm -rf vendor
+	rm -rf vendor target
 karma:
 	./node_modules/karma/bin/karma start karma.conf.js
