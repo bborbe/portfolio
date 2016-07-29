@@ -15,11 +15,11 @@ module.exports = function (config) {
 
 		// list of files / patterns to load in the browser
 		files: [
-			'./files/libs/angularjs/1.4.4/angular.min.js',
-			'./files/libs/angularjs/1.4.4/angular-route.min.js',
-			'./files/libs/angularjs/1.4.4/angular-cookies.min.js',
-			'./files/libs/angularjs/1.4.4/angular-resource.min.js',
-			'./files/libs/angularjs/1.4.4/angular-mocks.js',
+			'./files/libs/angularjs/1.4.12/angular.min.js',
+			'./files/libs/angularjs/1.4.12/angular-route.min.js',
+			'./files/libs/angularjs/1.4.12/angular-cookies.min.js',
+			'./files/libs/angularjs/1.4.12/angular-resource.min.js',
+			'./files/libs/angularjs/1.4.12/angular-mocks.js',
 			'./files/*.js',
 			'./files/js/*.js',
 			'./files/js/*.spec.js'
