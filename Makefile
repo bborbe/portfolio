@@ -1,5 +1,14 @@
+install:
+	GOBIN=$(GOPATH)/bin GO15VENDOREXPERIMENT=1 go install bin/portfolio_server/portfolio_server.go
+test:
+	GO15VENDOREXPERIMENT=1 go test `glide novendor`
+check:
+	golint ./...
+	errcheck ./...
 prepare:
 	npm install
+	go get -u github.com/golang/lint/golint
+  go get -u github.com/kisielk/errcheck
 	go get -u golang.org/x/tools/cmd/goimports
 	go get -u github.com/Masterminds/glide
 	glide install
