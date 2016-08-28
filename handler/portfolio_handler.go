@@ -9,13 +9,11 @@ import (
 	log_handler "github.com/bborbe/http_handler/log"
 	"github.com/bborbe/http_handler/static"
 	"github.com/bborbe/http_handler_finder/part"
-	"github.com/bborbe/log"
+	"github.com/golang/glog"
 )
 
-var logger = log.DefaultLogger
-
 func NewHandler(documentRoot string) http.Handler {
-	logger.Debugf("root: %s", documentRoot)
+	glog.V(2).Infof("root: %s", documentRoot)
 	fileServer := cachingheader.NewCachingHeaderHandler(contenttype.NewContentTypeHandler(http.FileServer(http.Dir(documentRoot))))
 	handlerFinder := part.New("")
 	handlerFinder.RegisterHandler("/", fileServer)

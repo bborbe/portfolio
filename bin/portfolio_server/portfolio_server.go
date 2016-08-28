@@ -6,39 +6,31 @@ import (
 
 	debug_handler "github.com/bborbe/http_handler/debug"
 
-	"os"
-
 	"runtime"
 
 	"fmt"
 
-	"github.com/bborbe/log"
 	"github.com/bborbe/portfolio/handler"
 	"github.com/facebookgo/grace/gracehttp"
+	"github.com/golang/glog"
 )
 
 const (
-	PARAMETER_LOGLEVEL     = "loglevel"
-	DEFAULT_PORT       int = 8080
-	PARAMETER_PORT         = "port"
-	PARAMETER_DEBUG        = "debug"
+	DEFAULT_PORT    int = 8080
+	PARAMETER_PORT      = "port"
+	PARAMETER_DEBUG     = "debug"
 )
 
 var (
-	logger          = log.DefaultLogger
 	portPtr         = flag.Int(PARAMETER_PORT, DEFAULT_PORT, "port")
 	documentRootPtr = flag.String("root", "", "Document root directory")
-	logLevelPtr     = flag.String(PARAMETER_LOGLEVEL, log.INFO_STRING, log.FLAG_USAGE)
 	debugPtr        = flag.Bool(PARAMETER_DEBUG, false, "debug")
 )
 
 func main() {
-	defer logger.Close()
+	defer glog.Flush()
+	glog.CopyStandardLogTo("info")
 	flag.Parse()
-
-	logger.SetLevelThreshold(log.LogStringToLevel(*logLevelPtr))
-	logger.Debugf("set log level to %s", *logLevelPtr)
-
 	runtime.GOMAXPROCS(runtime.NumCPU())
 
 	err := do(
@@ -47,9 +39,7 @@ func main() {
 		*documentRootPtr,
 	)
 	if err != nil {
-		logger.Fatal(err)
-		logger.Close()
-		os.Exit(1)
+		glog.Exit(err)
 	}
 
 }
@@ -67,7 +57,7 @@ func do(
 	if err != nil {
 		return err
 	}
-	logger.Debugf("start server")
+	glog.V(2).Infof("start server")
 	return gracehttp.Serve(server)
 }
 
