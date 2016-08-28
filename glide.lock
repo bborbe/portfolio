@@ -1,0 +1,33 @@
+hash: f56d61fd8aa1dc169fcaf27393b92b229dd61ab11e9b82eeb2bd3e69a54a0146
+updated: 2016-08-29T00:13:04.518805284+02:00
+imports:
+- name: github.com/bborbe/http_handler
+  version: 15d45afac61e92038e5c8425d4d4586f34e3c445
+  subpackages:
+  - cachingheader
+  - contenttype
+  - debug
+  - fallback
+  - log
+  - static
+- name: github.com/bborbe/http_handler_finder
+  version: e215169cfcc8ca1d32c5cdd124dd7b139395f82a
+  subpackages:
+  - part
+  - dummy
+- name: github.com/facebookgo/clock
+  version: 600d898af40aa09a7a93ecb9265d87b0504b6f03
+- name: github.com/facebookgo/grace
+  version: 053ab5d25436faedf3fe76fbf3da797c8c27c659
+  subpackages:
+  - gracehttp
+  - gracenet
+- name: github.com/facebookgo/httpdown
+  version: a3b1354551a26449fbe05f5d855937f6e7acbd71
+- name: github.com/facebookgo/stats
+  version: 1b76add642e42c6ffba7211ad7b3939ce654526e
+- name: github.com/golang/glog
+  version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
+testImports:
+- name: github.com/bborbe/assert
+  version: 639eac9a24e3c01472758f3c79452b8517bc29f6
