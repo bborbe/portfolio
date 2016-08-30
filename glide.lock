@@ -1,8 +1,8 @@
 hash: f56d61fd8aa1dc169fcaf27393b92b229dd61ab11e9b82eeb2bd3e69a54a0146
-updated: 2016-08-29T00:13:04.518805284+02:00
+updated: 2016-08-30T10:09:39.735886786+02:00
 imports:
 - name: github.com/bborbe/http_handler
-  version: 15d45afac61e92038e5c8425d4d4586f34e3c445
+  version: 392429869e2913f7b549f51795413e6e3a0f04ac
   subpackages:
   - cachingheader
   - contenttype
@@ -11,7 +11,7 @@ imports:
   - log
   - static
 - name: github.com/bborbe/http_handler_finder
-  version: e215169cfcc8ca1d32c5cdd124dd7b139395f82a
+  version: 6fbf86cd2fc9023be77b827c32834b77598ec086
   subpackages:
   - part
   - dummy
@@ -30,4 +30,4 @@ imports:
   version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
 testImports:
 - name: github.com/bborbe/assert
-  version: 639eac9a24e3c01472758f3c79452b8517bc29f6
+  version: 2db035a4c0870f6f48d1955f7b9542f9dbd4fb64

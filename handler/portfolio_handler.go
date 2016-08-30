@@ -14,11 +14,11 @@ import (
 
 func NewHandler(documentRoot string) http.Handler {
 	glog.V(2).Infof("root: %s", documentRoot)
-	fileServer := cachingheader.NewCachingHeaderHandler(contenttype.NewContentTypeHandler(http.FileServer(http.Dir(documentRoot))))
+	fileServer := cachingheader.New(contenttype.New(http.FileServer(http.Dir(documentRoot))))
 	handlerFinder := part.New("")
 	handlerFinder.RegisterHandler("/", fileServer)
 	handlerFinder.RegisterHandler("/css", fileServer)
 	handlerFinder.RegisterHandler("/js", fileServer)
 	handlerFinder.RegisterHandler("/images", fileServer)
-	return log_handler.NewLogHandler(fallback.NewFallback(handlerFinder, static.NewHandlerStaticContentReturnCode("not found", 404)))
+	return log_handler.New(fallback.New(handlerFinder, static.NewWithReturnCode("not found", 404)))
 }
