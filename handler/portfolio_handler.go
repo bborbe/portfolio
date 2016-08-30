@@ -3,7 +3,7 @@ package handler
 import (
 	"net/http"
 
-	"github.com/bborbe/http_handler/cachingheader"
+	"github.com/bborbe/http_handler/cacheheader"
 	"github.com/bborbe/http_handler/contenttype"
 	"github.com/bborbe/http_handler/fallback"
 	log_handler "github.com/bborbe/http_handler/log"
@@ -14,7 +14,7 @@ import (
 
 func NewHandler(documentRoot string) http.Handler {
 	glog.V(2).Infof("root: %s", documentRoot)
-	fileServer := cachingheader.New(contenttype.New(http.FileServer(http.Dir(documentRoot))))
+	fileServer := cacheheader.New(contenttype.New(http.FileServer(http.Dir(documentRoot))))
 	handlerFinder := part.New("")
 	handlerFinder.RegisterHandler("/", fileServer)
 	handlerFinder.RegisterHandler("/css", fileServer)
