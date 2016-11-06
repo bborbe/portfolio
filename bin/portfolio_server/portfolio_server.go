@@ -11,18 +11,18 @@ import (
 	"fmt"
 
 	"github.com/bborbe/portfolio/handler"
+	"github.com/bborbe/portfolio/model"
 	"github.com/facebookgo/grace/gracehttp"
 	"github.com/golang/glog"
-	"github.com/bborbe/portfolio/model"
 )
 
 const (
-	DEFAULT_PORT int = 8080
-	PARAMETER_PORT = "port"
+	DEFAULT_PORT   int = 8080
+	PARAMETER_PORT     = "port"
 )
 
 var (
-	portPtr = flag.Int(PARAMETER_PORT, DEFAULT_PORT, "port")
+	portPtr         = flag.Int(PARAMETER_PORT, DEFAULT_PORT, "port")
 	documentRootPtr = flag.String("root", "", "Document root directory")
 )
 
@@ -58,5 +58,5 @@ func createServer() (*http.Server, error) {
 	}
 
 	glog.V(2).Infof("create http server on %s", port.Address())
-	return &http.Server{Addr: fmt.Sprintf(":%d", port), Handler: handler}, nil
+	return &http.Server{Addr: port.Address(), Handler: handler}, nil
 }
