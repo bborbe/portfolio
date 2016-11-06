@@ -13,15 +13,16 @@ import (
 	"github.com/bborbe/portfolio/handler"
 	"github.com/facebookgo/grace/gracehttp"
 	"github.com/golang/glog"
+	"github.com/bborbe/portfolio/model"
 )
 
 const (
-	DEFAULT_PORT   int = 8080
-	PARAMETER_PORT     = "port"
+	DEFAULT_PORT int = 8080
+	PARAMETER_PORT = "port"
 )
 
 var (
-	portPtr         = flag.Int(PARAMETER_PORT, DEFAULT_PORT, "port")
+	portPtr = flag.Int(PARAMETER_PORT, DEFAULT_PORT, "port")
 	documentRootPtr = flag.String("root", "", "Document root directory")
 )
 
@@ -31,24 +32,14 @@ func main() {
 	flag.Parse()
 	runtime.GOMAXPROCS(runtime.NumCPU())
 
-	err := do(
-		*portPtr,
-		*documentRootPtr,
-	)
-	if err != nil {
+	if err := do(); err != nil {
 		glog.Exit(err)
 	}
 
 }
 
-func do(
-	port int,
-	documentRoot string,
-) error {
-	server, err := createServer(
-		port,
-		documentRoot,
-	)
+func do() error {
+	server, err := createServer()
 	if err != nil {
 		return err
 	}
@@ -56,15 +47,16 @@ func do(
 	return gracehttp.Serve(server)
 }
 
-func createServer(
-	port int,
-	documentRoot string,
-) (*http.Server, error) {
+func createServer() (*http.Server, error) {
+	port := model.Port(*portPtr)
+	documentRoot := *documentRootPtr
+
 	handler := handler.NewHandler(documentRoot)
 
 	if glog.V(4) {
 		handler = debug_handler.New(handler)
 	}
 
+	glog.V(2).Infof("create http server on %s", port.Address())
 	return &http.Server{Addr: fmt.Sprintf(":%d", port), Handler: handler}, nil
 }

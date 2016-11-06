@@ -1,3 +1,4 @@
+all: test install
 install:
 	GOBIN=$(GOPATH)/bin GO15VENDOREXPERIMENT=1 go install bin/portfolio_server/*.go
 test:
