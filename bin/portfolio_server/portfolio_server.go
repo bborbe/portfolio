@@ -8,8 +8,6 @@ import (
 
 	"runtime"
 
-	"fmt"
-
 	"github.com/bborbe/portfolio/handler"
 	"github.com/bborbe/portfolio/model"
 	"github.com/facebookgo/grace/gracehttp"
