@@ -18,13 +18,13 @@ angular.module('portfolioConfig').value('config', {
       "name": "Portfolio"
     },
     {
-      "href": "mailto:info@benjamin-borbe.de",
+      "href": "mailto:bborbe@rocketnews.de",
       "name": "Kontakt"
     }
   ],
   "subnavi": [
     {
-      "href": "https://www.benjamin-borbe.de/blog/impressum/",
+      "href": "https://blog.benjamin-borbe.de/impressum/",
       "name": "Impressum"
     }
   ]
