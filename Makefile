@@ -2,7 +2,7 @@ all: test install
 install:
 	GOBIN=$(GOPATH)/bin GO15VENDOREXPERIMENT=1 go install bin/portfolio_server/*.go
 test:
-	GO15VENDOREXPERIMENT=1 go test -cover `glide novendor`
+	go test -cover -race $(shell go list ./... | grep -v /vendor/)
 vet:
 	go tool vet .
 	go tool vet --shadow .
